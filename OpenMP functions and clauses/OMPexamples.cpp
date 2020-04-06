@@ -1,4 +1,4 @@
-//OpenMPָ����䰸��
+//OpenMPÖ¸µ¼Óï¾ä°¸Àý
 #include <omp.h>
 #include <iostream>
 #include <stdio.h>
