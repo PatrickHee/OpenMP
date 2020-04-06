@@ -1,4 +1,4 @@
-//�߳̽���
+//Ïß³Ì½»Ìæ
 #include <iostream>
 #include <omp.h>
 #include <stdio.h>
