@@ -1,4 +1,4 @@
-//ÀûÓÃOpenMP»ñÈ¡¼ÆËã»úºËĞÄÊıÁ¿ÓëÏß³ÌÊıÁ¿
+//åˆ©ç”¨OpenMPè·å–è®¡ç®—æœºæ ¸å¿ƒæ•°é‡ä¸çº¿ç¨‹æ•°é‡
 #include <omp.h>
 #include <iostream>
 #include <stdio.h>
@@ -11,11 +11,11 @@ using namespace std;
 int main()
 {
 
-	//´®ĞĞÖ´ĞĞ¿ªÊ¼
+	//ä¸²è¡Œæ‰§è¡Œå¼€å§‹
 	cout<<"Serial begin."<<endl;
-	cout<<"Processor number: "<<omp_get_num_procs()<<endl;//»ñÈ¡Âß¼­´¦ÀíÆ÷¸öÊı
-	cout<<"Thread number: "<<omp_get_num_threads()<<endl;//»ñÈ¡Ïß³ÌÊıÁ¿
-	cout<<"Parallel begin."<<endl;//²¢ĞĞÖ´ĞĞ¿ªÊ¼
+	cout<<"Processor number: "<<omp_get_num_procs()<<endl;//è·å–é€»è¾‘å¤„ç†å™¨ä¸ªæ•°
+	cout<<"Thread number: "<<omp_get_num_threads()<<endl;//è·å–çº¿ç¨‹æ•°é‡
+	cout<<"Parallel begin."<<endl;//å¹¶è¡Œæ‰§è¡Œå¼€å§‹
 	InitializeCriticalSection(&cs);
 	omp_set_num_threads(16);
 #pragma omp parallel num_threads(12)
@@ -26,24 +26,24 @@ int main()
 			" Thread ID: "<<omp_get_thread_num()<<endl;
 		LeaveCriticalSection(&cs);
 	}
-	cout<<"Parallel end."<<endl;//²¢ĞĞÖ´ĞĞ½áÊø
-	cout<<"Serial end."<<endl;//´®ĞĞÖ´ĞĞ½áÊø
+	cout<<"Parallel end."<<endl;//å¹¶è¡Œæ‰§è¡Œç»“æŸ
+	cout<<"Serial end."<<endl;//ä¸²è¡Œæ‰§è¡Œç»“æŸ
 
 	
 	/*
-	//´®ĞĞÖ´ĞĞ¿ªÊ¼
+	//ä¸²è¡Œæ‰§è¡Œå¼€å§‹
 	printf("Serial begin.");
-	printf("\nProcessor number: %d",omp_get_num_procs());//»ñÈ¡Âß¼­´¦ÀíÆ÷¸öÊı
-	printf("\nThread number: %d",omp_get_num_threads());//»ñÈ¡Ïß³ÌÊıÁ¿
-	printf("\nParallel begin.");//²¢ĞĞÖ´ĞĞ¿ªÊ¼
+	printf("\nProcessor number: %d",omp_get_num_procs());//è·å–é€»è¾‘å¤„ç†å™¨ä¸ªæ•°
+	printf("\nThread number: %d",omp_get_num_threads());//è·å–çº¿ç¨‹æ•°é‡
+	printf("\nParallel begin.");//å¹¶è¡Œæ‰§è¡Œå¼€å§‹
 	//omp_set_num_threads(4);
 #pragma omp parallel 
 	{
 		printf("\nProcessor number: %d, Thread number: %d, Thread ID: %d"
 			,omp_get_num_procs(),omp_get_num_threads(),omp_get_thread_num());
 	}
-	printf("\nParallel end.");//²¢ĞĞÖ´ĞĞ½áÊø
-	printf("\nSerial end.\n");//´®ĞĞÖ´ĞĞ½áÊø
+	printf("\nParallel end.");//å¹¶è¡Œæ‰§è¡Œç»“æŸ
+	printf("\nSerial end.\n");//ä¸²è¡Œæ‰§è¡Œç»“æŸ
 	*/
 	return 0;
 }
