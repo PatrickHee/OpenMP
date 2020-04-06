@@ -1,4 +1,4 @@
-//·Ö±ğÍ¨¹ıµ¥Ïß³Ì£¬ÈË¹¤¶àÏß³Ì£¬OMP¶àÏß³Ì¼ÆËã0-10000000µÄÀÛ¼ÓºÍ
+//åˆ†åˆ«é€šè¿‡å•çº¿ç¨‹ï¼Œäººå·¥å¤šçº¿ç¨‹ï¼ŒOMPå¤šçº¿ç¨‹è®¡ç®—0-10000000çš„ç´¯åŠ å’Œ
 #include <omp.h>
 #include <iostream>
 #include <time.h>
@@ -11,7 +11,7 @@ using namespace std;
 clock_t start,stop;
 long long int funcsum[4]={0};
 
-//º¯ÊıÉùÃ÷
+//å‡½æ•°å£°æ˜
 long long int SingleThread(int n);
 
 DWORD WINAPI Threadfunc1(PVOID pM)
@@ -45,7 +45,7 @@ DWORD WINAPI Threadfunc4(PVOID pM)
 int main()
 {
 	long long int sum;
-	//µ¥Ïß³Ì¼ÆËã
+	//å•çº¿ç¨‹è®¡ç®—
 	sum=0;
 	start=clock();
 	sum=SingleThread(N);
@@ -54,7 +54,7 @@ int main()
 		(double)(stop-start)*1000/CLOCKS_PER_SEC<<
 		"ms"<<endl;
 
-	//ÈË¹¤ËÄÏß³Ì¼ÆËã
+	//äººå·¥å››çº¿ç¨‹è®¡ç®—
 	sum=0;
 	start=clock();
 	HANDLE hThread[4];
@@ -70,10 +70,10 @@ int main()
 		(double)(stop-start)*1000/CLOCKS_PER_SEC<<
 		"ms"<<endl;
 
-	//OMP¶àÏß³Ì¼ÆËã
+	//OMPå¤šçº¿ç¨‹è®¡ç®—
 	sum=0;
 	start=clock();
-#pragma omp parallel for reduction(+:sum)//¹éÔ¼£¬±ÜÃâÊı¾İ¾ºÕù
+#pragma omp parallel for reduction(+:sum)//å½’çº¦ï¼Œé¿å…æ•°æ®ç«äº‰
 	for(int i=1;i<=N;i++)
 		sum+=i;
 	stop=clock();
@@ -81,7 +81,7 @@ int main()
 		(double)(stop-start)*1000/CLOCKS_PER_SEC<<
 		"ms"<<endl;
 
-	//²»ÓÃ¹æÔ¼µÄ´íÎó°¸Àı
+	//ä¸ç”¨è§„çº¦çš„é”™è¯¯æ¡ˆä¾‹
 	printf("Wrong Example:\n");
 #pragma omp parallel for
 	for(int i=1;i<=N;i++)
@@ -93,7 +93,7 @@ int main()
 	return 0;
 }
 
-//º¯Êı¶¨Òå
+//å‡½æ•°å®šä¹‰
 long long int SingleThread(int n)
 {
 	long long int sum=0;
